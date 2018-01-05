@@ -1,7 +1,0 @@
-FROM mhart/alpine-node:6.9.1
-MAINTAINER Matrixbirds <yooobuntu@163.com>
-RUN mkdir -p /data/cbndata
-COPY . /data/cbndata
-WORKDIR /data/cbndata
-RUN apk add --no-cache make gcc g++ python
-RUN npm install --production

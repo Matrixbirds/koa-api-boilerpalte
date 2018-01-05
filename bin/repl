@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+const Promise = require('bluebird').Promise
+const fs = require('fs')
+const jsYaml = require('js-yaml')
+const mixin = Object.assign
+Promise.config({
+    longStackTraces: false
+})
+
+if (!process.env.NODE_ENV) process.env.NODE_ENV = 'dev'
+if (require.main === module) {
+    const repl = require('repl')
+    const {context} = require('../app')
+    mixin(context, {
+        moment: require('moment'),
+        Promise: require('bluebird').Promise
+        axios: require('axios')
+    })
+    mixin(repl.start(':> ').context, context)
+}
+
+process.on('uncaughException', (err) => {
+    console.error('uncauchException', err)
+})
+
+process.on('unhandleRejection', (err) => {
+    console.error('unhandleRejection', err)
+})
