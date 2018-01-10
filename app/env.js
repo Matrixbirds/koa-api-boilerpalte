@@ -7,7 +7,7 @@ const yaml = require('js-yaml')
 const APP_ENV = {};
 
 nconf.file({
-    file: path.join(__dirname, '../__settings'),
+    file: path.join(__dirname, '../__settings.yml'),
     format: {
         stringify (obj, opt) {
             return yaml.safeDump(obj, opts)
@@ -18,4 +18,4 @@ nconf.file({
     }
 })
 
-module.exports = nconf.get(process.env.NODE_ENV)
+exports =  module.exports = nconf.get(process.env.NODE_ENV)

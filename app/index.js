@@ -46,7 +46,8 @@ const deps = {
     context: {
         app,
         models,
-        env
+        env,
+        utils: require('./facilities')
     }
 }
 

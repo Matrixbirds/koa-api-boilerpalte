@@ -13,7 +13,7 @@ if (require.main === module) {
     const {context} = require('../app')
     mixin(context, {
         moment: require('moment'),
-        Promise: require('bluebird').Promise
+        Promise: require('bluebird').Promise,
         axios: require('axios')
     })
     mixin(repl.start(':> ').context, context)
