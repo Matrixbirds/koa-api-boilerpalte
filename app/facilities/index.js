@@ -12,7 +12,8 @@ class AppError extends Error {
         error.status = status
         error.creator = opts.creator
         Error.captureStackTrace(msg, this.creator)
-        return error
+        this.error = error
+        return this
     }
 
     static isInstance (err) {

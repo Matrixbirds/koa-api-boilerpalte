@@ -14,7 +14,7 @@ exports = module.exports = $ => {
         sendFile (ctx, next) {
             ctx.sendFile = function ({status, body, type}) {
                 const types = ['xlsx', 'csv', 'txt', 'html']
-                    .find(e => e == type) || 'txt
+                    .find(e => e == type) || 'txt'
                 $.mixin(this.response, {
                     status,
                     body,
